@@ -1,0 +1,5 @@
+{
+ 
+  "presets": ["env","es2015", "react"],
+  "plugins": ["babel-plugin-add-module-exports"]
+}
