@@ -17,6 +17,7 @@ if (env === 'build') {
 
 var config = {
     entry: SRC_DIR + '/app/index.js',
+    devtool: 'source-map',
     output: {
         path: DIST_DIR + '/',
         publicPath: '/',
