@@ -3,10 +3,25 @@ var path = require('path');
 const env = require('yargs').argv.env; // use --env with webpack 2
 var DIST_DIR = path.resolve(__dirname, 'dist');
 var SRC_DIR = path.resolve(__dirname, 'src');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const pkg = require('./package.json');
 
 let libraryName = pkg.name;
+
+const copyFiles = new CopyWebpackPlugin([
+    {
+        from: './src/assets'
+    }
+]);
+
+const copyHTMLFiles = new CopyWebpackPlugin([
+    {
+        from: './src/*.html',
+        to: "./dist"
+    }
+]);
 
 if (env === 'build') {
     // plugins.push(new UglifyJsPlugin({ minimize: true }));
@@ -37,7 +52,11 @@ var config = {
                 }
             }
         ]
-    }
+    },
+    plugins: [
+        // copyFiles,
+        copyHTMLFiles
+    ],
 };
 
 module.exports = config;
