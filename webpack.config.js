@@ -57,6 +57,13 @@ var config = {
         // copyFiles,
         copyHTMLFiles
     ],
+    devServer: {
+        port: 3000
+    },
+    watchOptions: {
+        aggregateTimeout: 2000,
+        poll: 3000
+      }
 };
 
 module.exports = config;

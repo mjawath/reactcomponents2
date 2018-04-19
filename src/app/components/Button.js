@@ -4,7 +4,7 @@ export default class Button extends Component{
 
     fireEvent=(e)=>{
         console.log(e);
-        console.log("Button");
+        console.log("btt");
         if(this.props.event){
             this.props.event(e);
         }
