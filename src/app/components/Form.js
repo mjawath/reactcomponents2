@@ -6,26 +6,36 @@ export default class Form extends Component {
         super(props);
     }
 
-     onChange = (e) => {      
-        console.log(e);
-        console.log(e.target);
-        console.log(e.target.value);
+    onChange = (e) => {      
+
         if(this.props.onChange){
             this.props.onChange(e.target.name,e.target.value);
         }
     }
 
+    onHandleSubmit=(e)=> {
+        e.preventDefault();
+        // e to json 
+        this.props.onHandleSubmit()
+    }
+
+    toJsonFromForm(form){
+
+        return  {};
+    }
+
+    
     render() {
         return (
             <div>
                 
                 <span>Form </span>
-                <form>
+                <form onSubmit={this.onHandleSubmit} >
                 <input  type="text" name="fname" onChange={this.onChange} value={this.props.data.fname}/>
                     <br/>
 
-                <input  type="submit" name="submit" onChange={this.onChange} value={this.props.data.fname}/>
-                    <br/>                    
+                <input  type="submit" name="submit" />
+                    <br/>                                        
                 </form>
             </div>
         );

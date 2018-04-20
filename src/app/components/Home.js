@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "./Button";
 import Form from "./Form";
+import GridUI from "./list/GridUI";
 
 
 export class Home extends React.Component {
@@ -30,6 +31,9 @@ export class Home extends React.Component {
                 <p>In a new Component!</p>
                 <Button text="my button" event={this.testButton}></Button>
                 <Form onChange={this.onChange} data={this.state.busObj} ></Form>                
+
+                
+
             </div>
         );
     }

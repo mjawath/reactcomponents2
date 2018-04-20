@@ -1,0 +1,22 @@
+.data-collection-ui {
+    border: 1px solid #1C6EA4;
+    background-color: #EEEEEE;
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+  }
+
+  .data-collection-ui .data-collection-cell, .data-collection-ui .data-collection-header {
+    border: 1px solid #AAAAAA;
+    padding: 3px 2px;
+  }
+
+
+  .divTableRow { 
+      display: block;
+      border: 1px solid #1C6EA4;
+ }
+
+  .data-collection-ui .divTableRow:nth-child(even) {
+    background: #D0E4F5;
+  }
