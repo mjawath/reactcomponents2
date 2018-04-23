@@ -1,53 +1,45 @@
 import React, { Component } from 'react';
-import GridTempalteUI from './GridTemplateUI'
+import GridCellTemplateUI from './GridCellTemplateUI'
 
 class GridUI extends Component {
 
 
 
 
-    row = (data)=>{
+    
+    render() {
+
+            {/* 
+                                for each item  create child 
+                                selected item list  ?
+                                page context
+                                disabled item ?
+                                unselectable item
+
+                            */}
+
 
         const collection = this.props.collection;
-        const CellRender = this.props.cellRender;
-        if(CellRender && CellRender.prototype instanceof GridTempalteUI){
+        const ContentCellRender = this.props.contentCellRender;
+        if(ContentCellRender && ContentCellRender.prototype instanceof GridCellTemplateUI){
         const comps = [];
             let index=0;
             for (const item of collection){
                 comps.push(<div className="divTableRow" key={'DataCollectionUI-ItemKey'+ (index++)}>
-                                <CellRender data={item} index={index}
-                                            onSelectedEvent={this.onParentLevelSelectedEvent}>
+                    <ContentCellRender data={item} index={index}
+                                   onSelectedEvent={this.onParentLevelSelectedEvent}>
 
-                                </CellRender>
-                    </div>);
+                    </ContentCellRender>
+
+
+                </div>);
             }
             return <div className="data-collection-ui">
                     {comps}
-                    {CustomFooter && <CustomFooter name="jawath"/>}
+   
                 </div>;
         }
        return <div>default implementation of list iteration should go her</div>
-    }
-
-    render() {
-
-
-
-
-        return (
-            <div>
-                {/* 
-                    for each item  create child 
-                    selected item list  ?
-                    page context
-                    disabled item ?
-                    unselectable item
-
-                */}
-                
-
-            </div>
-        );
     }
 }
 
